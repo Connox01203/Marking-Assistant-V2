@@ -1,0 +1,84 @@
+<!-- Copyright (c) Microsoft Corporation. All rights reserved. Licensed under the MIT License. -->
+<!-- This file shows how to design a first-run page that provides a welcome screen to the user about the features of the add-in. -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contoso Task Pane Add-in</title>
+
+    <!-- Office JavaScript API -->
+    <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1.1/hosted/office.js"></script>
+
+    <!-- For more information on Fluent UI, visit https://developer.microsoft.com/fluentui#/. -->
+    <link rel="stylesheet" href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-core/11.0.0/css/fabric.min.css"/>
+
+    <!-- Template styles -->
+    <link href="taskpane.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body class="ms-font-m ms-welcome ms-Fabric">
+    <header class="ms-welcome__header ms-bgColor-neutralLighter">
+        <h1 class="ms-font-su">Marking Assistant</h1>
+    </header>
+    <section id="sideload-msg" class="ms-welcome__main">
+        <h2 class="ms-font-xl">Please sideload your add-in to see app body.</h2>
+    </section>
+    <main id="app-body" class="ms-welcome__main" style="display: none; justify-content: center; flex-direction: column; align-items: center;">
+        <!-- <div role="button" id="good-well-done" class="ms-welcome__action ms-Button ms-Button--hero ms-font-xl" style="display: flex; justify-content: center; margin-top: 15px;">
+            <span class="ms-Button-label" style="color: green; font-weight: 400;">Good/Well Done</span>
+        </div>
+        <div role="button" id="take-analysis-further" class="ms-welcome__action ms-Button ms-Button--hero ms-font-xl" style="display: flex; justify-content: center; margin-top: 15px;">
+            <span class="ms-Button-label" style="color: darkmagenta; font-weight: 400;">Take Analysis Further</span>
+        </div>
+        <div role="button" id="clarification-needed" class="ms-welcome__action ms-Button ms-Button--hero ms-font-xl" style="display: flex; justify-content: center; margin-top: 15px;">
+            <span class="ms-Button-label" style="color: rgb(120, 204, 232); font-weight: 400;">Clarification Needed</span>
+        </div>
+        <div role="button" id="evidence-needed" class="ms-welcome__action ms-Button ms-Button--hero ms-font-xl" style="display: flex; justify-content: center; margin-top: 15px;">
+            <span class="ms-Button-label" style="color: turquoise; font-weight: 400;">Evidence Needed</span>
+        </div>
+        <div role="button" id="awkward-phrasing" class="ms-welcome__action ms-Button ms-Button--hero ms-font-xl" style="display: flex; justify-content: center; margin-top: 15px;">
+            <span class="ms-Button-label" style="color: darkgreen; font-weight: 400;">Awkward Phrasing</span>
+        </div>
+        <div role="button" id="missing" class="ms-welcome__action ms-Button ms-Button--hero ms-font-xl" style="display: flex; justify-content: center; margin-top: 15px;">
+            <span class="ms-Button-label" style="color: darkblue; font-weight: 400;">Missing</span>
+        </div>
+        <div role="button" id="run-on-sentence" class="ms-welcome__action ms-Button ms-Button--hero ms-font-xl" style="display: flex; justify-content: center; margin-top: 15px;">
+            <span class="ms-Button-label" style="color: yellow; font-weight: 400;">Run-On Sentence</span>
+        </div>
+        <div role="button" id="sentence-fragment" class="ms-welcome__action ms-Button ms-Button--hero ms-font-xl" style="display: flex; justify-content: center; margin-top: 15px;">
+            <span class="ms-Button-label" style="color: red; font-weight: 400;">Sentence Fragment</span>
+        </div>
+        <div role="button" id="punctuation-issue" class="ms-welcome__action ms-Button ms-Button--hero ms-font-xl" style="display: flex; justify-content: center; margin-top: 15px;">
+            <span class="ms-Button-label" style="color: grey; font-weight: 400;">Punctuation Issue</span>
+        </div>
+        <div role="button" id="nope" class="ms-welcome__action ms-Button ms-Button--hero ms-font-xl" style="display: flex; justify-content: center; margin-top: 15px;">
+            <span class="ms-Button-label" style="color: magenta; font-weight: 400;">Nope</span>
+        </div>
+        <div role="button" id="run" class="ms-welcome__action ms-Button ms-Button--hero ms-font-xl" style="display: flex; justify-content: center;">
+            <span class="ms-Button-label">Compile Report</span>
+        </div> -->
+
+        <button class="ms-Button ms-fontColor-green ms-fontWeight-bold" id="good-well-done" data-message="goodWellDone" style="width: 200px;">Good/Well Done</button><br>
+        <button class="ms-Button ms-fontColor-magentaDark ms-fontWeight-bold" id="take-analysis-further" data-message="analysisFurther" style="width: 200px;">Take Analysis Further</button><br>
+        <button class="ms-Button ms-fontColor-blueLight ms-fontWeight-bold" id="clarification-needed" data-message="clarificationNeeded" style="width: 200px;">Clarification Needed</button><br>
+        <button class="ms-Button ms-fontColor-teal ms-fontWeight-bold" id="evidence-needed" data-message="evidenceNeeded" style="width: 200px;">Evidence Needed</button><br/>
+        <button class="ms-Button ms-fontColor-greenDark ms-fontWeight-bold" id="awkward-phrasing" data-message="awkwardPhrasing" style="width: 200px;">Awkward Phrasing</button><br>
+        <button class="ms-Button ms-fontColor-blueMid ms-fontWeight-bold" id="missing" data-message="missing" style="width: 200px;">Missing</button><br/> 
+        <button class="ms-Button ms-fontColor-yellow ms-fontWeight-bold" id="run-on-sentence" data-message="runOnSentence" style="width: 200px;">Run-on Sentence</button><br>
+        <button class="ms-Button ms-fontColor-red ms-fontWeight-bold" id="sentence-fragment" data-message="sentenceFragment" style="width: 200px;">Sentence Fragment</button><br>
+        <button class="ms-Button ms-fontColor-neutralSecondary ms-fontWeight-bold" id="punctuation-issue" data-message="punctuationIssue" style="width: 200px;">Punctuation Issue</button><br> 
+        <button class="ms-Button ms-fontWeight-bold" style="color: #e404e4; width: 200px;" id="nope" data-message="nope">Nope</button><br><br>
+        <button class="ms-Button ms-fontWeight-bold" id="run" style="width: 200px;">Compile Report</button><br/>  
+
+        <!-- <div role="button" id="run" class="ms-welcome__action ms-Button ms-Button--hero ms-font-xl">
+            <span class="ms-Button-label">Compile Report</span>
+        </div> -->
+
+    </main>
+</body>
+
+</html>
