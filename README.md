@@ -20,7 +20,15 @@ In the taskpane, there are 10 different buttons that highlight the currently sel
 
 ## History
 
-This is version 2 of this project. This version is a significant improvement on the last, improving report compiling times by several factors. In its current form, this is the first version of the V2 release. Future updates to come.
+This is version 2 of this project. This version is a significant improvement on the last, improving report compiling times by several factors. In its current form, this is the first version of the V2 release.
+
+## Future updates
+
+-Code needs to be commented
+-Taskpane esthetics need to be improved
+-More stability testing needed
+-Code needs to be overall cleaned up
+-Some optimizations might be found
 
 ## Acknowledgents
 
