@@ -24,11 +24,11 @@ This is version 2 of this project. This version is a significant improvement on 
 
 ## Future updates
 
--Code needs to be commented
--Taskpane esthetics need to be improved
--More stability testing needed
--Code needs to be overall cleaned up
--Some optimizations might be found
+- Code needs to be commented
+- Taskpane esthetics need to be improved
+- More stability testing needed
+- Code needs to be overall cleaned up
+- Some optimizations might be found
 
 ## Acknowledgents
 
